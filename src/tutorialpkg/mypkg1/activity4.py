@@ -96,9 +96,10 @@ if __name__ == '__main__':
     except FileNotFoundError as e:
         print(f"File not found. Please check the file path. Error: {e}")
 
-    prepare_event_data(events_csv_df)
-    print("\nValues in the 'start' column:")
-    print(events_csv_df.loc[:, ['start', 'end']])
+    df_npc_codes = pd.read_csv(npc_csv, usecols=['Code', 'Name'], encoding='utf-8', encoding_errors='ignore')
+    merged_df = prepare_event_data(events_csv_df, df_npc_codes)
+
+
     
 
     

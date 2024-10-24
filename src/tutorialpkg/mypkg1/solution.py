@@ -40,7 +40,6 @@ def describe_dataframe(df):
     """
 
     # Display the shape of the dataframe
-    print(df)
     print("\nShape of the dataframe:")
     print(df.shape)
 
@@ -162,9 +161,9 @@ def prepare_event_data(df_raw, df_npc=None):
     print(df_prepared.columns)
 
     # Activity 10: Save the prepared data to a csv file and excel file
-    filepath_to_save = Path(__file__).parent.parent.joinpath("data", "paralympics_events_prepared.csv")
+    filepath_to_save = Path(__file__).parent.parent.joinpath("data", "paralympics_events_prepared1.csv")
     df_prepared.to_csv(filepath_to_save, index=False)
-    filepath_to_save_e = Path(__file__).parent.parent.joinpath("data", "paralympics_events_prepared.xlsx")
+    filepath_to_save_e = Path(__file__).parent.parent.joinpath("data", "paralympics_events_prepared1 .xlsx")
     df_prepared.to_excel(filepath_to_save_e, index=False)
 
     return df_prepared
@@ -211,19 +210,19 @@ if __name__ == "__main__":
         sys.stdout = sys.__stdout__
 
     # Activity 4: Call the function to prepare the data for analysis to change the float data types to int in events_csv_df
-    #prepare_event_data(events_csv_df)
+    # prepare_event_data(events_csv_df)
 
     # Activity 4: Print the values in the start and end columns of the dataframe
-    #print("\nValues in the 'start' column:")
-    #print(events_csv_df.loc[:, ['start', 'end']])
+    # print("\nValues in the 'start' column:")
+    # print(events_csv_df.loc[:, ['start', 'end']])
 
     # Activity 4: Call the function to prepare the data for analysis to change the data types of the start and end columns
-    #prepare_event_data(events_csv_df)
+    # prepare_event_data(events_csv_df)
 
     # Activities 5-8: Call the function to prepare the data and merge the event data with the NPC data
-    #df_npc_codes = pd.read_csv(npc_csv, usecols=['Code', 'Name'], encoding='utf-8', encoding_errors='ignore')
-    #merged_df = prepare_event_data(events_csv_df, df_npc_codes)
+    df_npc_codes = pd.read_csv(npc_csv, usecols=['Code', 'Name'], encoding='utf-8', encoding_errors='ignore')
+    # merged_df = prepare_event_data(events_csv_df, df_npc_codes)
 
     # Activity 10: Final call to the function to return the prepared data to a dataframe and save to file
-    #prepared_df = prepare_event_data(events_csv_df, df_npc_codes)
-    #print(prepared_df)
+    prepared_df = prepare_event_data(events_csv_df, df_npc_codes)
+    # print(prepared_df)
