@@ -82,7 +82,7 @@ if __name__ == '__main__':
     try:
         paralympics_csv_file = Path(__file__).parent.parent.joinpath('data', 'paralympics_events_raw.csv')
         paralympics_xlsx_file = Path(__file__).parent.parent.joinpath('data', 'paralympics_all_raw.xlsx')
-
+        npc_csv = Path(__file__).parent.parent.joinpath("data", "npc_codes.csv")
         # Load the CSV and Excel files
         events_csv_df = pd.read_csv(paralympics_csv_file)
         xlsx_df1 = pd.read_excel(paralympics_xlsx_file)
@@ -98,6 +98,9 @@ if __name__ == '__main__':
 
     df_npc_codes = pd.read_csv(npc_csv, usecols=['Code', 'Name'], encoding='utf-8', encoding_errors='ignore')
     merged_df = prepare_event_data(events_csv_df, df_npc_codes)
+    
+    print('answer:')
+    print(merged_df)
 
 
     

@@ -5,6 +5,7 @@
 """
 from pathlib import Path
 
+
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -54,7 +55,7 @@ def view_outliers(df):
         None
     """
 
-    df.boxplot(subplots=True, sharey=False)
+    df.plot.box(subplots=True, sharey=False)
     plt.tight_layout()
     # Save the plot to a file
     save_path = Path(__file__).parent.joinpath('boxplot_example.png')
@@ -110,12 +111,12 @@ if __name__ == '__main__':
         prepared_df = pd.read_csv(prepared_data_fp)
 
         # Activity 2: Draw histograms of the DataFrame using the prepared data
-        # view_distribution(prepared_df)
-        # participant_columns = ['participants_m', 'participants_f']
-        # view_distribution(prepared_df, participant_columns)
+        view_distribution(prepared_df)
+        participant_columns = ['participants_m', 'participants_f']
+        view_distribution(prepared_df, participant_columns)
 
         # Activity 3: Draw boxplots of the DataFrame using the prepared data
-        # view_outliers(prepared_df)
+        view_outliers(prepared_df)
 
         # Activity 4: Draw timeseries plot of the DataFrame using the prepared data
         view_timeseries(prepared_df, 'start', 'participants')
